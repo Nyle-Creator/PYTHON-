@@ -1,0 +1,40 @@
+try:
+    with open("message.txt", "x") as file:
+        print("File is created succesfully!")
+    
+    
+except FileExistsError:
+     print("File already exist")
+    
+
+while True:
+        print("\n-------- Welcome to ChatChat --------")
+        print("\n\t1. Send a message: ")
+        print("\t2. View all meesages")
+        print("\t3.Exit")
+        
+        choice = input("\tEnter choice (1/3): ")
+         
+        if choice == "1":
+            Send_message = input("\tSend a message: ")
+    
+            with open("message.txt", "a") as file:
+                file.write(Send_message + "\n")
+                
+            print("\nMessage sent!")
+            continue
+        
+        elif choice == "2":
+            with open("message.txt", "r") as file:
+                print(file.read())
+                
+        else:
+            print("\nThankyou for using my program!")
+            break
+    
+try:
+    with open("message.txt", "r") as file:
+        print(file.read())
+        
+except FileNotFoundError:
+        print("File does not exist")
