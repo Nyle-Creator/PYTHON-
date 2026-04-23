@@ -1,0 +1,36 @@
+def add_work():
+    add_task = input("Add another task: ")
+    with open("work.txt", "a") as file: 
+        file.write(add_task + "\n")
+        print("New task added!")
+
+def view_work():
+
+    with open("work.txt", "r") as file:
+        for i, line in enumerate(file, 1):
+            print(f"{i}. {line.strip()}")
+
+while True:
+    print("\n1. Add task")
+    print("2. View task")
+    print("3.Exit")
+
+    choice = input("Choose: ")
+
+
+    if choice == "1":
+        add_work()
+    
+    elif choice == "2":
+        view_work()
+    
+    elif choice == "3":
+        print("Thank you for using my program")
+        break
+
+    else:
+        print("Invalid Input, Please try again.")
+
+
+
+
